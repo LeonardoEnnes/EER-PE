@@ -1,2 +1,2 @@
 # Eficiência Energética Residencial 
-Projeto destinado a disciplina de Programação Estruturada 
+Projeto desenvolvido em C e destinado a disciplina de Programação Estruturada 
