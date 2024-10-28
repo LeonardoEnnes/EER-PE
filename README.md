@@ -1,2 +1,2 @@
-# EER-PE
-Projeto da disciplina de Programação Estruturada do IFSul
+# Eficiência Energética Residencial 
+Projeto destinado a disciplina de Programação Estruturada 
