@@ -72,7 +72,7 @@ void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesti
     printf("\nEstudo de Viabilidade Solar:\n");
     printf("Consumo Total Mensal: %.2f kWh\n", totalConsumoMensal);
     printf("Custo Total Atual: R$ %.2f\n", totalCustoAtual);
-    printf("Com energia solar (redução de 80%%): Custo Reduzido = R$ %.2f\n",
+    printf("Com energia solar (reducao de 80%%): Custo Reduzido = R$ %.2f\n",
            totalCustoAtual * 0.2);
 }
 
