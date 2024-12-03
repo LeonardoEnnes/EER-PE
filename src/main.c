@@ -15,11 +15,19 @@ int main() {
     calcularConsumoTotal(potencias, horas, consumos, NUM_ELETRODOMESTICOS);
     calcularCustoTotal(consumos, custoKwh, custoTotais, NUM_ELETRODOMESTICOS, bandeiraTarifaria);
 
-    // Relatórios
     exibirResultados(consumos, custoTotais, NUM_ELETRODOMESTICOS);
     identificarMaiorConsumo(consumos, NUM_ELETRODOMESTICOS);
-    simularMudancas(consumos, NUM_ELETRODOMESTICOS, custoKwh, bandeiraTarifaria);
     calcularEconomiaSolar(consumos, custoKwh, NUM_ELETRODOMESTICOS);
+
+    // Cálculo do consumo total mensal para análise de viabilidade solar
+    float consumoTotalMensal = 0;
+    int i;
+    for (i = 0; i < NUM_ELETRODOMESTICOS; i++) {
+        consumoTotalMensal += calcularConsumoMensal(consumos[i], 1);
+    }
+
+    // Nova chamada para análise de viabilidade solar no RS
+    calcularViabilidadeSolarRS(consumoTotalMensal, custoKwh);
 
     return 0;
 }
