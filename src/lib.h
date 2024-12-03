@@ -16,5 +16,9 @@ float calcularCustoMensal(float consumoMensal, float custoKwh, int bandeiraTarif
 void calcularConsumoTotal(float* potencias, float* horas, float* consumos, int numEletrodomesticos);
 void calcularCustoTotal(float* consumos, float custoKwh, float* custoTotais, int numEletrodomesticos, int bandeiraTarifaria);
 void exibirResultados(float* consumos, float* custoTotais, int numEletrodomesticos);
+void identificarMaiorConsumo(float* consumos, int numEletrodomesticos);
+void simularMudancas(float* consumos, int numEletrodomesticos, float custoKwh, int bandeiraTarifaria);
+void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos);
+
 
 #endif 

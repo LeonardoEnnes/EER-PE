@@ -14,8 +14,12 @@ int main() {
     // Cálculo do consumo diário e custo mensal
     calcularConsumoTotal(potencias, horas, consumos, NUM_ELETRODOMESTICOS);
     calcularCustoTotal(consumos, custoKwh, custoTotais, NUM_ELETRODOMESTICOS, bandeiraTarifaria);
-    
+
+    // Relatórios
     exibirResultados(consumos, custoTotais, NUM_ELETRODOMESTICOS);
+    identificarMaiorConsumo(consumos, NUM_ELETRODOMESTICOS);
+    simularMudancas(consumos, NUM_ELETRODOMESTICOS, custoKwh, bandeiraTarifaria);
+    calcularEconomiaSolar(consumos, custoKwh, NUM_ELETRODOMESTICOS);
 
     return 0;
 }
