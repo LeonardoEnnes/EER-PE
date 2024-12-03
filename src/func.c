@@ -66,7 +66,7 @@ void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesti
     int i;
     for (i = 0; i < numEletrodomesticos; i++) {
         totalConsumoMensal += calcularConsumoMensal(consumos[i], 1);
-        totalCustoAtual += totalConsumoMensal * custoKwh;
+        totalCustoAtual += calcularConsumoMensal(consumos[i], 1) * custoKwh;
     }
 
     printf("\nEstudo de Viabilidade Solar:\n");
