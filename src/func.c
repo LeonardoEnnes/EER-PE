@@ -42,7 +42,7 @@ void calcularCustoTotal(float* consumos, float custoKwh, float* custoTotais, int
 void exibirResultados(float* consumos, float* custoTotais, int numEletrodomesticos) {
     printf("\nResultados:\n");
     printf("-------------------------------------------------------\n");
-    printf("| Eletrodoméstico | Consumo Diário | Custo Mensal (R$) |\n");
+    printf("| Eletrodomestico | Consumo Diario | Custo Mensal (R$) |\n");
     printf("-------------------------------------------------------\n");
     int i;
     for (i = 0; i < numEletrodomesticos; i++) {
@@ -58,7 +58,7 @@ void identificarMaiorConsumo(float* consumos, int numEletrodomesticos) {
     for (i = 1; i < numEletrodomesticos; i++) {
         if (consumos[i] > consumos[maior]) maior = i;
     }
-    printf("\nO eletrodoméstico com maior consumo é o %d com %.2f kWh por dia.\n", maior + 1, consumos[maior]);
+    printf("\nO eletrodomestico com maior consumo e o %d com %.2f kWh por dia.\n", maior + 1, consumos[maior]);
 }
 
 void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos) {
@@ -79,7 +79,7 @@ void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesti
 void calcularViabilidadeSolarRS(float consumoTotalMensal, float custoKwh) {
     float economiaAnual, custoManutencaoAnual, economiaAnualTotal, payback;
     
-    printf("\nAnálise de Viabilidade Solar no Rio Grande do Sul:\n");
+    printf("\nAnalise de Viabilidade Solar no Rio Grande do Sul:\n");
     printf("---------------------------------------------------\n");
     
     // Cálculo da economia mensal
@@ -92,7 +92,7 @@ void calcularViabilidadeSolarRS(float consumoTotalMensal, float custoKwh) {
     
     // Cálculo do custo de manutenção anual
     custoManutencaoAnual = CUSTO_INSTALACAO_SOLAR * TAXA_MANUTENCAO_ANUAL;
-    printf("Custo de Manutenção Anual: R$ %.2f\n", custoManutencaoAnual);
+    printf("Custo de Manutencao Anual: R$ %.2f\n", custoManutencaoAnual);
     
     // Cálculo da economia anual total
     economiaAnualTotal = economiaAnual - custoManutencaoAnual;
@@ -102,20 +102,20 @@ void calcularViabilidadeSolarRS(float consumoTotalMensal, float custoKwh) {
     payback = CUSTO_INSTALACAO_SOLAR / economiaAnualTotal;
     printf("Tempo de Retorno do Investimento (Payback): %.2f anos\n", payback);
     
-    printf("\nEficiência média dos painéis solares no RS: %.1f%%\n", EFICIENCIA_PAINEL_SOLAR * 100);
+    printf("\nEficiencia media dos paineis solares no RS: %.1f%%\n", EFICIENCIA_PAINEL_SOLAR * 100);
     
-    printf("\nConclusão:\n");
+    printf("\nConclusao:\n");
     if (payback < 10) {
-        printf("O investimento em energia solar é altamente recomendado.\n");
-        printf("Você terá um retorno do investimento em menos de 10 anos,\n");
-        printf("com mais de 15 anos de economia significativa após esse período.\n");
+        printf("O investimento em energia solar e altamente recomendado.\n");
+        printf("Voce tera um retorno do investimento em menos de 10 anos,\n");
+        printf("com mais de 15 anos de economia significativa apos esse periodo.\n");
     } else if (payback < 15) {
-        printf("O investimento em energia solar é recomendado.\n");
+        printf("O investimento em energia solar e recomendado.\n");
         printf("Embora o retorno do investimento seja um pouco mais longo,\n");
-        printf("ainda haverá uma economia significativa a longo prazo.\n");
+        printf("ainda havera uma economia significativa a longo prazo.\n");
     } else {
         printf("O investimento em energia solar pode ser considerado,\n");
-        printf("mas o retorno será mais longo. Reavalie em alguns anos,\n");
-        printf("pois os custos de instalação tendem a diminuir com o tempo.\n");
+        printf("mas o retorno sera mais longo. Reavalie em alguns anos,\n");
+        printf("pois os custos de instalacao tendem a diminuir com o tempo.\n");
     }
 }
