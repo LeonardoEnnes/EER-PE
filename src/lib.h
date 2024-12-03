@@ -25,8 +25,10 @@ void exibirResultados(float* consumos, float* custoTotais, int numEletrodomestic
 void identificarMaiorConsumo(float* consumos, int numEletrodomesticos);
 void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos);
 
-// Nova função para calcular viabilidade solar 
+// Nova função para calcular viabilidade solar
 void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh);
 
+// função que lida com recursão
+int identificarMaiorConsumoRecursivo(float* consumos, int numEletrodomesticos, int indiceAtual);
 
 #endif 

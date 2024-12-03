@@ -52,12 +52,18 @@ void exibirResultados(float* consumos, float* custoTotais, int numEletrodomestic
     printf("-------------------------------------------------------\n");
 }
 
-void identificarMaiorConsumo(float* consumos, int numEletrodomesticos) {
-    int maior = 0;
-    int i;
-    for (i = 1; i < numEletrodomesticos; i++) {
-        if (consumos[i] > consumos[maior]) maior = i;
+int identificarMaiorConsumoRecursivo(float* consumos, int numEletrodomesticos, int indiceAtual) {
+    if (numEletrodomesticos == 1) {
+        return 0;
     }
+    
+    int indiceMaior = identificarMaiorConsumoRecursivo(consumos, numEletrodomesticos - 1, indiceAtual + 1);
+    
+    return (consumos[indiceAtual] > consumos[indiceMaior]) ? indiceAtual : indiceMaior;
+}
+
+void identificarMaiorConsumo(float* consumos, int numEletrodomesticos) {
+    int maior = identificarMaiorConsumoRecursivo(consumos, numEletrodomesticos, 0);
     printf("\nO eletrodomestico com maior consumo e o %d com %.2f kWh por dia.\n", maior + 1, consumos[maior]);
 }
 
