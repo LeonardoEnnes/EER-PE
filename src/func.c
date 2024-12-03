@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "lib.h"
 #include <math.h>
+#include <string.h>
 
 float calcularConsumo(float potencia, float horas) {
     return (potencia / 1000) * horas; // Converte W para kW
@@ -52,6 +53,19 @@ void exibirResultados(float* consumos, float* custoTotais, int numEletrodomestic
     printf("-------------------------------------------------------\n");
 }
 
+void exibirResultadosComNomes(float* consumos, float* custoTotais, int numEletrodomesticos, char nomes[][20]) {
+    printf("\nResultados detalhados:\n");
+    printf("-------------------------------------------------------\n");
+    printf("| Eletrodomestico | Consumo Diario | Custo Mensal (R$) |\n");
+    printf("-------------------------------------------------------\n");
+    int i;
+    for (i = 0; i < numEletrodomesticos; i++) {
+        printf("| %-15s |     %.2f kWh   |       %.2f       |\n",
+               nomes[i], consumos[i], custoTotais[i]);
+    }
+    printf("-------------------------------------------------------\n");
+}
+
 int identificarMaiorConsumoRecursivo(float* consumos, int numEletrodomesticos, int indiceAtual) {
     if (numEletrodomesticos == 1) {
         return 0;
@@ -66,6 +80,7 @@ void identificarMaiorConsumo(float* consumos, int numEletrodomesticos) {
     int maior = identificarMaiorConsumoRecursivo(consumos, numEletrodomesticos, 0);
     printf("\nO eletrodomestico com maior consumo e o %d com %.2f kWh por dia.\n", maior + 1, consumos[maior]);
 }
+
 
 void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos) {
     float totalConsumoMensal = 0.0, totalCustoAtual = 0.0;

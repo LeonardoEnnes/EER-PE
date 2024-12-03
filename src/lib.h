@@ -31,4 +31,7 @@ void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh);
 // função que lida com recursão
 int identificarMaiorConsumoRecursivo(float* consumos, int numEletrodomesticos, int indiceAtual);
 
+// função que lida com strings
+void exibirResultadosComNomes(float* consumos, float* custoTotais, int numEletrodomesticos, char nomes[][20]);
+
 #endif 
