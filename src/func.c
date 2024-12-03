@@ -100,7 +100,7 @@ void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesti
 void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh) {
     float economiaAnual, custoManutencaoAnual, economiaAnualTotal, payback;
     
-    printf("\nAnalise de Viabilidade Solar no Rio Grande do Sul:\n");
+    printf("\nAnalise de Viabilidade Solar:\n");
     printf("---------------------------------------------------\n");
     
     // Cálculo da economia mensal
