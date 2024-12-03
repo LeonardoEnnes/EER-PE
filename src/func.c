@@ -76,7 +76,7 @@ void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesti
            totalCustoAtual * 0.2);
 }
 
-void calcularViabilidadeSolarRS(float consumoTotalMensal, float custoKwh) {
+void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh) {
     float economiaAnual, custoManutencaoAnual, economiaAnualTotal, payback;
     
     printf("\nAnalise de Viabilidade Solar no Rio Grande do Sul:\n");

@@ -25,7 +25,8 @@ void exibirResultados(float* consumos, float* custoTotais, int numEletrodomestic
 void identificarMaiorConsumo(float* consumos, int numEletrodomesticos);
 void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos);
 
-// Nova função para calcular viabilidade solar no Rio Grande do Sul
-void calcularViabilidadeSolarRS(float consumoTotalMensal, float custoKwh);
+// Nova função para calcular viabilidade solar 
+void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh);
+
 
 #endif 
