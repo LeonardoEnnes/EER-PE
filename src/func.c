@@ -105,7 +105,7 @@ void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh) {
     printf("-------------------------------------------------------\n");
     
     // Cálculo da economia mensal
-    float economiaMensal = consumoTotalMensal * custoKwh;
+    float economiaMensal = consumoTotalMensal * custoKwh * 0.8;
     printf("Economia Mensal: R$ %.2f\n", economiaMensal);
     
     // Cálculo da economia anual
@@ -124,7 +124,7 @@ void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh) {
     payback = CUSTO_INSTALACAO_SOLAR / economiaAnualTotal;
     printf("Tempo de Retorno do Investimento (Payback): %.2f anos\n", payback);
     
-    printf("\nEficiencia media dos paineis solares no RS: %.1f%%\n", EFICIENCIA_PAINEL_SOLAR * 100);
+    printf("\nEficiencia media dos paineis solares: %.1f%%\n", EFICIENCIA_PAINEL_SOLAR * 100);
     
     printf("\nConclusao:\n");
     printf("-------------------------------------------------------\n");
