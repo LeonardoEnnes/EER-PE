@@ -17,9 +17,7 @@ int main() {
 
     exibirResultados(consumos, custoTotais, NUM_ELETRODOMESTICOS);
     identificarMaiorConsumo(consumos, NUM_ELETRODOMESTICOS);
-    
     exibirResultadosComNomes(consumos, custoTotais, NUM_ELETRODOMESTICOS, nomes);
-    
     calcularEconomiaSolar(consumos, custoKwh, NUM_ELETRODOMESTICOS);
 
     // Cálculo do consumo total mensal para análise de viabilidade solar
@@ -29,7 +27,6 @@ int main() {
         consumoTotalMensal += calcularConsumoMensal(consumos[i], 1);
     }
 
-    // Nova chamada para análise de viabilidade solar no RS
     calcularViabilidadeSolar(consumoTotalMensal, custoKwh);
 
     return 0;
