@@ -73,9 +73,12 @@ int identificarMaiorConsumoRecursivo(float* consumos, int numEletrodomesticos, i
     
     int indiceMaior = identificarMaiorConsumoRecursivo(consumos, numEletrodomesticos - 1, indiceAtual + 1);
     
-    return (consumos[indiceAtual] > consumos[indiceMaior]) ? indiceAtual : indiceMaior;
+    if (consumos[indiceAtual] > consumos[indiceMaior]) {
+        return indiceAtual;
+    } else {
+        return indiceMaior;
+    }
 }
-
 void identificarMaiorConsumo(float* consumos, int numEletrodomesticos) {
     int maior = identificarMaiorConsumoRecursivo(consumos, numEletrodomesticos, 0);
     printf("\nO eletrodomestico com maior consumo e o %d com %.2f kWh por dia.\n", maior + 1, consumos[maior]);
