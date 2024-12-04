@@ -10,7 +10,7 @@
 #define ACRESCIMO_VERMELHA_2 7.877   // R$ 7,877 a cada 100 kWh
 
 // viabilidade solar
-#define CUSTO_INSTALACAO_SOLAR 25000.0 // levei de exemplo uma casa grande -> https://www.energiatotal.com.br/saiba-qual-e-o-preco-medio-para-ter-um-sistema-fotovoltaico
+// valores dos custos de instalações solares -> https://www.energiatotal.com.br/saiba-qual-e-o-preco-medio-para-ter-um-sistema-fotovoltaico
 #define EFICIENCIA_PAINEL_SOLAR 0.165 // https://solarisenergia.eco.br/eficiencia-do-painel-solar-fotovoltaico/
 #define TAXA_MANUTENCAO_ANUAL 0.005 // https://elysia.com.br/manutencao-de-painel-fotovoltaico/
 
@@ -22,11 +22,12 @@ void calcularConsumoTotal(float* potencias, float* horas, float* consumos, int n
 void calcularCustoTotal(float* consumos, float custoKwh, float* custoTotais, int numEletrodomesticos, int bandeiraTarifaria);
 void exibirResultados(float* consumos, float* custoTotais, int numEletrodomesticos);
 
-void identificarMaiorConsumo(float* consumos, int numEletrodomesticos);
+void identificarMaiorConsumo(float* consumos, int numEletrodomesticos, char nomes[][20]);
 void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos);
+float calcularCustoInstalacaoSolar(char tipoCasa);
 
-// Nova função para calcular viabilidade solar
-void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh);
+// função para calcular viabilidade solar
+void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh, char tipoCasa);
 
 // função que lida com recursão
 int identificarMaiorConsumoRecursivo(float* consumos, int numEletrodomesticos, int indiceAtual);
