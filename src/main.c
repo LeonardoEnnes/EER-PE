@@ -12,12 +12,13 @@ int main() {
     int bandeiraTarifaria = 3;  // Bandeira tarifária fixa (VERMELHA_2) para exemplo
     char nomes[NUM_ELETRODOMESTICOS][20] = {"Geladeira", "Ar Condicionado", "Chuveiro"};
     char tipoCasa = 'P'; // 'P' para pequena, 'M' para média, 'G' para grande 
+    int mes = 5; // Defina o mês desejado (1-12), por exemplo, maio (5)
 
     calcularConsumoTotal(potencias, horas, consumos, NUM_ELETRODOMESTICOS);
     calcularCustoTotal(consumos, custoKwh, custoTotais, NUM_ELETRODOMESTICOS, bandeiraTarifaria);
 
-    exibirResultados(consumos, custoTotais, NUM_ELETRODOMESTICOS);
-    exibirResultadosComNomes(consumos, custoTotais, NUM_ELETRODOMESTICOS, nomes);
+    exibirResultados(consumos, custoTotais, NUM_ELETRODOMESTICOS, mes);
+    exibirResultadosComNomes(consumos, custoTotais, NUM_ELETRODOMESTICOS, nomes, mes);
     identificarMaiorConsumo(consumos, NUM_ELETRODOMESTICOS, nomes);
     calcularEconomiaSolar(consumos, custoKwh, NUM_ELETRODOMESTICOS);
 
