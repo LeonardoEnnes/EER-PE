@@ -27,13 +27,13 @@ float calcularCustoMensal(float consumoMensal, float custoKwh, int bandeiraTarif
 
 void calcularConsumoTotal(float* potencias, float* horas, float* consumos, int numEletrodomesticos) {
     int i;
-	for (i = 0; i < numEletrodomesticos; i++) {
+    for (i = 0; i < numEletrodomesticos; i++) {
         consumos[i] = calcularConsumo(potencias[i], horas[i]);
     }
 }
 
 void calcularCustoTotal(float* consumos, float custoKwh, float* custoTotais, int numEletrodomesticos, int bandeiraTarifaria) {
-	int i;
+    int i;
     for (i = 0; i < numEletrodomesticos; i++) {
         float consumoMensal = calcularConsumoMensal(consumos[i], 1);
         custoTotais[i] = calcularCustoMensal(consumoMensal, custoKwh, bandeiraTarifaria);
@@ -105,11 +105,11 @@ void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesti
 
 float calcularCustoInstalacaoSolar(char tipoCasa) {
     switch (tipoCasa) {
-        case 'P': // Pequena
-            return 15000.0;
-        case 'M': // Média
-            return 20000.0;
-        case 'G': // Grande
+        case 'P': 
+            return 14000.0; 
+        case 'M': 
+            return 15800.0; 
+        case 'G': 
         default:
             return 25000.0;
     }
@@ -117,7 +117,7 @@ float calcularCustoInstalacaoSolar(char tipoCasa) {
 
 void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh, char tipoCasa) {
     float custoInstalacao = calcularCustoInstalacaoSolar(tipoCasa);
-	float economiaAnual, custoManutencaoAnual, economiaAnualTotal, payback;
+    float economiaAnualBruta, custoManutencaoAnual, economiaAnualLiquida, payback;
     
     printf("\nAnalise de Viabilidade Solar:\n");
     printf("-------------------------------------------------------\n");
@@ -129,23 +129,21 @@ void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh, char tip
     float economiaMensal = consumoTotalMensal * custoKwh * 0.8;
     printf("Economia Mensal: R$ %.2f\n", economiaMensal);
     
-    // Cálculo da economia anual
-    economiaAnual = economiaMensal * 12;
-    printf("Economia Anual: R$ %.2f\n", economiaAnual);
+    // Cálculo da economia anual bruta (n considerando os custos de manutencao)
+    economiaAnualBruta = economiaMensal * 12;
+    printf("Economia Anual Bruta: R$ %.2f\n", economiaAnualBruta);
     
     // Cálculo do custo de manutenção anual
-    custoManutencaoAnual = custoInstalacao  * TAXA_MANUTENCAO_ANUAL;
+    custoManutencaoAnual = custoInstalacao * TAXA_MANUTENCAO_ANUAL;
     printf("Custo de Manutencao Anual: R$ %.2f\n", custoManutencaoAnual);
     
-    // Cálculo da economia anual total
-    economiaAnualTotal = economiaAnual - custoManutencaoAnual;
-    printf("Economia Anual Total: R$ %.2f\n", economiaAnualTotal);
+    // Cálculo da economia anual líquida (considerando os custos de manutenção)
+    economiaAnualLiquida = economiaAnualBruta - custoManutencaoAnual;
+    printf("Economia Anual Liquida: R$ %.2f\n", economiaAnualLiquida);
     
     // Cálculo do payback
-    payback = custoInstalacao  / economiaAnualTotal;
+    payback = custoInstalacao / economiaAnualLiquida;
     printf("Tempo de Retorno do Investimento (Payback): %.2f anos\n", payback);
-    
-    printf("\nEficiencia media dos paineis solares: %.1f%%\n", EFICIENCIA_PAINEL_SOLAR * 100);
     
     printf("\nConclusao:\n");
     printf("-------------------------------------------------------\n");

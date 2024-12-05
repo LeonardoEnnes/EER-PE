@@ -9,8 +9,7 @@
 #define ACRESCIMO_VERMELHA_1 4.463   // R$ 4,463 a cada 100 kWh
 #define ACRESCIMO_VERMELHA_2 7.877   // R$ 7,877 a cada 100 kWh
 
-// viabilidade solar
-// valores dos custos de instalações solares -> https://www.energiatotal.com.br/saiba-qual-e-o-preco-medio-para-ter-um-sistema-fotovoltaico
+// valores dos custos de instalações solares => https://www.energiatotal.com.br/saiba-qual-e-o-preco-medio-para-ter-um-sistema-fotovoltaico
 #define EFICIENCIA_PAINEL_SOLAR 0.165 // https://solarisenergia.eco.br/eficiencia-do-painel-solar-fotovoltaico/
 #define TAXA_MANUTENCAO_ANUAL 0.005 // https://elysia.com.br/manutencao-de-painel-fotovoltaico/
 
@@ -25,13 +24,10 @@ void exibirResultados(float* consumos, float* custoTotais, int numEletrodomestic
 void identificarMaiorConsumo(float* consumos, int numEletrodomesticos, char nomes[][20]);
 void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos);
 float calcularCustoInstalacaoSolar(char tipoCasa);
-
-// função para calcular viabilidade solar
 void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh, char tipoCasa);
 
 // função que lida com recursão
 int identificarMaiorConsumoRecursivo(float* consumos, int numEletrodomesticos, int indiceAtual);
-
 // função que lida com strings
 void exibirResultadosComNomes(float* consumos, float* custoTotais, int numEletrodomesticos, char nomes[][20]);
 
