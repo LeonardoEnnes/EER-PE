@@ -41,7 +41,7 @@ void calcularCustoTotal(float* consumos, float custoKwh, float* custoTotais, int
 }
 
 void exibirResultados(float* consumos, float* custoTotais, int numEletrodomesticos, int mes) {
-    printf("\nResultados para o mês %d:\n", mes);
+    printf("\nResultados para o mes %d:\n", mes);
     printf("-------------------------------------------------------------------------\n");
     printf("| Eletrodomestico | Consumo Diario | Consumo Mensal | Custo Mensal (R$) |\n");
     printf("-------------------------------------------------------------------------\n");
@@ -55,16 +55,23 @@ void exibirResultados(float* consumos, float* custoTotais, int numEletrodomestic
 }
 
 void exibirResultadosComNomes(float* consumos, float* custoTotais, int numEletrodomesticos, char nomes[][20], int mes) {
-    printf("\nResultados detalhados para o mês %d:\n", mes);
+    printf("\nResultados detalhados para o mes %d:\n", mes);
     printf("-------------------------------------------------------------------------\n");
     printf("| Eletrodomestico | Consumo Diario | Consumo Mensal | Custo Mensal (R$) |\n");
     printf("-------------------------------------------------------------------------\n");
+    float consumoTotalMensal = 0.0;
+    float custoTotalMensal = 0.0;
     int i;
     for (i = 0; i < numEletrodomesticos; i++) {
         float consumoMensal = calcularConsumoMensal(consumos[i], mes);
+        consumoTotalMensal += consumoMensal;
+        custoTotalMensal += custoTotais[i];
         printf("| %-15s |    %.2f kWh   |   %.2f kWh    |       %.2f       |\n",
                nomes[i], consumos[i], consumoMensal, custoTotais[i]);
     }
+    printf("-------------------------------------------------------------------------\n");
+    printf("| Total           |               |   %.2f kWh    |       %.2f       |\n",
+           consumoTotalMensal, custoTotalMensal);
     printf("-------------------------------------------------------------------------\n");
 }
 
@@ -88,16 +95,16 @@ void identificarMaiorConsumo(float* consumos, int numEletrodomesticos, char nome
 }
 
 // se baseia em um mes especifico informado
-void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos, int mes) {
+void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos, int mes, int bandeiraTarifaria) {
     float totalConsumoMensal = 0.0, totalCustoAtual = 0.0;
     int i;
     for (i = 0; i < numEletrodomesticos; i++) {
         float consumoMensal = calcularConsumoMensal(consumos[i], mes);
         totalConsumoMensal += consumoMensal;
-        totalCustoAtual += consumoMensal * custoKwh;
+        totalCustoAtual += calcularCustoMensal(consumoMensal, custoKwh, bandeiraTarifaria);
     }
 
-    printf("\nEstudo de Viabilidade Solar para o mês %d:\n", mes);
+    printf("\nEstudo de Viabilidade Solar para o mes %d:\n", mes);
     printf("-------------------------------------------------------\n");
     printf("Consumo Total Mensal: %.2f kWh\n", totalConsumoMensal);
     printf("Custo Total Atual: R$ %.2f\n", totalCustoAtual);

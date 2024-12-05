@@ -4,8 +4,8 @@
 #define NUM_ELETRODOMESTICOS 3
 
 int main() {
-    float potencias[NUM_ELETRODOMESTICOS] = {220, 220, 220}; // Potências em W
-    float horas[NUM_ELETRODOMESTICOS] = {24, 8, 4};  // Horas de uso diário
+    float potencias[NUM_ELETRODOMESTICOS] = {300, 750, 4500}; // Potências em W
+    float horas[NUM_ELETRODOMESTICOS] = {24, 8, 2};  // Horas de uso diário
     float consumos[NUM_ELETRODOMESTICOS];
     float custoTotais[NUM_ELETRODOMESTICOS];
     float custoKwh = 0.85; // Custo fixo por kWh para exemplo
@@ -16,15 +16,13 @@ int main() {
 
     calcularConsumoTotal(potencias, horas, consumos, NUM_ELETRODOMESTICOS);
     calcularCustoTotal(consumos, custoKwh, custoTotais, NUM_ELETRODOMESTICOS, bandeiraTarifaria, mes);
-
     exibirResultados(consumos, custoTotais, NUM_ELETRODOMESTICOS, mes);
     exibirResultadosComNomes(consumos, custoTotais, NUM_ELETRODOMESTICOS, nomes, mes);
     identificarMaiorConsumo(consumos, NUM_ELETRODOMESTICOS, nomes);
     
-    // calculo de economia solar baseado no mes especifico
-    calcularEconomiaSolar(consumos, custoKwh, NUM_ELETRODOMESTICOS, mes);
+	// calculo de economia solar baseado no mes especifico
+	calcularEconomiaSolar(consumos, custoKwh, NUM_ELETRODOMESTICOS, mes, bandeiraTarifaria);
 
-    
     // Cálculo anual
     float consumoTotalAnual = 0;
     int mes_calc;
