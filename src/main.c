@@ -15,21 +15,26 @@ int main() {
     int mes = 5; // Defina o mês desejado (1-12), por exemplo, maio (5)
 
     calcularConsumoTotal(potencias, horas, consumos, NUM_ELETRODOMESTICOS);
-    calcularCustoTotal(consumos, custoKwh, custoTotais, NUM_ELETRODOMESTICOS, bandeiraTarifaria);
+    calcularCustoTotal(consumos, custoKwh, custoTotais, NUM_ELETRODOMESTICOS, bandeiraTarifaria, mes);
 
     exibirResultados(consumos, custoTotais, NUM_ELETRODOMESTICOS, mes);
     exibirResultadosComNomes(consumos, custoTotais, NUM_ELETRODOMESTICOS, nomes, mes);
     identificarMaiorConsumo(consumos, NUM_ELETRODOMESTICOS, nomes);
-    calcularEconomiaSolar(consumos, custoKwh, NUM_ELETRODOMESTICOS);
+    
+    // calculo de economia solar baseado no mes especifico
+    calcularEconomiaSolar(consumos, custoKwh, NUM_ELETRODOMESTICOS, mes);
 
-    // Cálculo do consumo total mensal para análise de viabilidade solar
-    float consumoTotalMensal = 0;
-    int i;
-    for (i = 0; i < NUM_ELETRODOMESTICOS; i++) {
-        consumoTotalMensal += calcularConsumoMensal(consumos[i], 1);
+    
+    // Cálculo anual
+    float consumoTotalAnual = 0;
+    int mes_calc;
+    for (mes_calc = 1; mes_calc <= 12; mes_calc++) {
+    	int i;
+        for (i = 0; i < NUM_ELETRODOMESTICOS; i++) {
+            consumoTotalAnual += calcularConsumoMensal(consumos[i], mes_calc);
+        }
     }
-
-    calcularViabilidadeSolar(consumoTotalMensal, custoKwh, tipoCasa);
+    calcularViabilidadeSolar(consumoTotalAnual, custoKwh, tipoCasa);
 
     return 0;
 }

@@ -22,13 +22,13 @@ void calcularCustoTotal(float* consumos, float custoKwh, float* custoTotais, int
 void exibirResultados(float* consumos, float* custoTotais, int numEletrodomesticos, int mes);
 
 void identificarMaiorConsumo(float* consumos, int numEletrodomesticos, char nomes[][20]);
-void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos);
+void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos, int mes);
 float calcularCustoInstalacaoSolar(char tipoCasa);
-void calcularViabilidadeSolar(float consumoTotalMensal, float custoKwh, char tipoCasa);
+void calcularViabilidadeSolar(float consumoTotalAnual, float custoKwh, char tipoCasa);
 
 // função que lida com recursão
 int identificarMaiorConsumoRecursivo(float* consumos, int numEletrodomesticos, int indiceAtual);
 // função que lida com strings
-void exibirResultadosComNomes(float* consumos, float* custoTotais, int numEletrodomesticos, char nomes[][20]);
+void exibirResultadosComNomes(float* consumos, float* custoTotais, int numEletrodomesticos, char nomes[][20], int mes);
 
 #endif 
