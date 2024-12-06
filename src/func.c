@@ -98,18 +98,24 @@ void identificarMaiorConsumo(float* consumos, int numEletrodomesticos, char nome
 void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos, int mes, int bandeiraTarifaria) {
     float totalConsumoMensal = 0.0, totalCustoAtual = 0.0;
     int i;
+    
+    // Calcula o consumo e custo total mensal
     for (i = 0; i < numEletrodomesticos; i++) {
         float consumoMensal = calcularConsumoMensal(consumos[i], mes);
         totalConsumoMensal += consumoMensal;
         totalCustoAtual += calcularCustoMensal(consumoMensal, custoKwh, bandeiraTarifaria);
     }
 
+    float economia = totalCustoAtual * 0.8;
+    float novoCustoReduzido = totalCustoAtual * 0.2;
+
     printf("\nEstudo de Viabilidade Solar para o mes %d:\n", mes);
     printf("-------------------------------------------------------\n");
     printf("Consumo Total Mensal: %.2f kWh\n", totalConsumoMensal);
     printf("Custo Total Atual: R$ %.2f\n", totalCustoAtual);
-    printf("Com energia solar (reducao de 80%%): Custo Reduzido = R$ %.2f\n",
-           totalCustoAtual * 0.2);
+    printf("Com energia solar (reducao de 80%%):\n");
+    printf("Economia Mensal: R$ %.2f\n", economia);
+    printf("Valor Reduzido da Conta: R$ %.2f\n", novoCustoReduzido);
 }
 
 float calcularCustoInstalacaoSolar(char tipoCasa) {

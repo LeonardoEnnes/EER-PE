@@ -4,7 +4,7 @@
 #define NUM_ELETRODOMESTICOS 3
 
 int main() {
-    float potencias[NUM_ELETRODOMESTICOS] = {300, 750, 4500}; // Potências em W
+    float potencias[NUM_ELETRODOMESTICOS] = {300, 720, 3200}; // Potências em W
     float horas[NUM_ELETRODOMESTICOS] = {24, 8, 2};  // Horas de uso diário
     float consumos[NUM_ELETRODOMESTICOS];
     float custoTotais[NUM_ELETRODOMESTICOS];
@@ -12,7 +12,7 @@ int main() {
     int bandeiraTarifaria = 3;  // Bandeira tarifária fixa (VERMELHA_2) para exemplo
     char nomes[NUM_ELETRODOMESTICOS][20] = {"Geladeira", "Ar Condicionado", "Chuveiro"};
     char tipoCasa = 'P'; // 'P' para pequena, 'M' para média, 'G' para grande 
-    int mes = 5; // Defina o mês desejado (1-12), por exemplo, maio (5)
+    int mes = 12; // Defina o mês desejado (1-12)
 
     calcularConsumoTotal(potencias, horas, consumos, NUM_ELETRODOMESTICOS);
     calcularCustoTotal(consumos, custoKwh, custoTotais, NUM_ELETRODOMESTICOS, bandeiraTarifaria, mes);
