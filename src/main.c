@@ -32,6 +32,11 @@ int main() {
             consumoTotalAnual += calcularConsumoMensal(consumos[i], mes_calc);
         }
     }
+    
+    // Calculando e imprimindo a média de consumo diaria
+    float mediaDeConsumoDiario = calcularMediaConsumo(consumos, NUM_ELETRODOMESTICOS);
+    printf("\nMedia de consumo diario: %.2f kWh\n", mediaDeConsumoDiario);
+    
     calcularViabilidadeSolar(consumoTotalAnual, custoKwh, tipoCasa);
     
     // Salvando o Relatorio na pasta do projeto

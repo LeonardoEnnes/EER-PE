@@ -33,4 +33,7 @@ void exibirResultadosComNomes(float* consumos, float* custoTotais, int numEletro
 
 // função que lida com manipulação de arquivos
 void salvarRelatorio(float* consumos, float* custoTotais, int numEletrodomesticos, char nomes[][20], int mes, float consumoTotalAnual, float custoKwh, char tipoCasa);
+
+// função que lida alocação dinâmica
+float calcularMediaConsumo(float* consumos, int numEletrodomesticos);
 #endif 

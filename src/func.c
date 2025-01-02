@@ -183,7 +183,6 @@ void calcularViabilidadeSolar(float consumoTotalAnual, float custoKwh, char tipo
 void salvarRelatorio(float* consumos, float* custoTotais, int numEletrodomesticos, char nomes[][20], int mes, float consumoTotalAnual, float custoKwh, char tipoCasa) {
     FILE *arquivo;
     arquivo = fopen("relatorio_geral.txt", "w");
-    
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo para escrita.\n");
         return;
@@ -196,6 +195,12 @@ void salvarRelatorio(float* consumos, float* custoTotais, int numEletrodomestico
     exibirResultadosComNomes(consumos, custoTotais, numEletrodomesticos, nomes, mes);
     identificarMaiorConsumo(consumos, numEletrodomesticos, nomes);
     calcularEconomiaSolar(consumos, custoKwh, numEletrodomesticos, mes, 3); // Assumindo bandeira vermelha 2
+    
+	// Adicionar o cálculo da média de consumo diario
+    float mediaDeConsumoDiario = calcularMediaConsumo(consumos, numEletrodomesticos);
+    printf("\nMedia de consumo diario: %.2f kWh\n", mediaDeConsumoDiario);
+    
+    // calculo de viabilidade solar
     calcularViabilidadeSolar(consumoTotalAnual, custoKwh, tipoCasa);
 
     // Restaurar a saída padrão
@@ -203,4 +208,26 @@ void salvarRelatorio(float* consumos, float* custoTotais, int numEletrodomestico
 
     fclose(arquivo);
     printf("Relatorio salvo com sucesso em 'relatorio_geral.txt'.\n");
+}
+
+// alocação dinamica para consumo diario
+float calcularMediaConsumo(float* consumos, int numEletrodomesticos) {
+    float* consumosCopia = (float*) malloc(numEletrodomesticos * sizeof(float));
+    if (consumosCopia == NULL) {
+        printf("Erro na alocacao de memoria\n");
+        return 0;
+    }
+
+    float soma = 0;
+    int i;
+    for (i = 0; i < numEletrodomesticos; i++) {
+        consumosCopia[i] = consumos[i];
+        soma += consumosCopia[i];
+    }
+
+    float media = soma / numEletrodomesticos;
+
+    free(consumosCopia);
+
+    return media;
 }
