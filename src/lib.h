@@ -20,7 +20,6 @@ float calcularCustoMensal(float consumoMensal, float custoKwh, int bandeiraTarif
 void calcularConsumoTotal(float* potencias, float* horas, float* consumos, int numEletrodomesticos);
 void calcularCustoTotal(float* consumos, float custoKwh, float* custoTotais, int numEletrodomesticos, int bandeiraTarifaria, int mes);
 void exibirResultados(float* consumos, float* custoTotais, int numEletrodomesticos, int mes);
-
 void identificarMaiorConsumo(float* consumos, int numEletrodomesticos, char nomes[][20]);
 void calcularEconomiaSolar(float* consumos, float custoKwh, int numEletrodomesticos, int mes, int bandeiraTarifaria);
 float calcularCustoInstalacaoSolar(char tipoCasa);
@@ -32,4 +31,6 @@ int identificarMaiorConsumoRecursivo(float* consumos, int numEletrodomesticos, i
 // função que lida com strings
 void exibirResultadosComNomes(float* consumos, float* custoTotais, int numEletrodomesticos, char nomes[][20], int mes);
 
+// função que lida com manipulação de arquivos
+void salvarRelatorio(float* consumos, float* custoTotais, int numEletrodomesticos, char nomes[][20], int mes, float consumoTotalAnual, float custoKwh, char tipoCasa);
 #endif 

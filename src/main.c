@@ -33,6 +33,9 @@ int main() {
         }
     }
     calcularViabilidadeSolar(consumoTotalAnual, custoKwh, tipoCasa);
-
+    
+    // Salvando o Relatorio na pasta do projeto
+    salvarRelatorio(consumos, custoTotais, NUM_ELETRODOMESTICOS, nomes, mes, consumoTotalAnual, custoKwh, tipoCasa);
+    
     return 0;
 }

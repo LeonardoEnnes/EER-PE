@@ -178,3 +178,29 @@ void calcularViabilidadeSolar(float consumoTotalAnual, float custoKwh, char tipo
     }
     printf("-------------------------------------------------------\n");
 }
+
+// funçao que salva o relatorio completo em um arquivo .txt na pasta do projeto 
+void salvarRelatorio(float* consumos, float* custoTotais, int numEletrodomesticos, char nomes[][20], int mes, float consumoTotalAnual, float custoKwh, char tipoCasa) {
+    FILE *arquivo;
+    arquivo = fopen("relatorio_geral.txt", "w");
+    
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo para escrita.\n");
+        return;
+    }
+
+    // Redirecionar a saída padrão para o arquivo
+    FILE *stdout_original = freopen("relatorio_geral.txt", "w", stdout);
+
+    // Chamar as funções existentes para escrever no arquivo
+    exibirResultadosComNomes(consumos, custoTotais, numEletrodomesticos, nomes, mes);
+    identificarMaiorConsumo(consumos, numEletrodomesticos, nomes);
+    calcularEconomiaSolar(consumos, custoKwh, numEletrodomesticos, mes, 3); // Assumindo bandeira vermelha 2
+    calcularViabilidadeSolar(consumoTotalAnual, custoKwh, tipoCasa);
+
+    // Restaurar a saída padrão
+    freopen("CON", "w", stdout);
+
+    fclose(arquivo);
+    printf("Relatorio salvo com sucesso em 'relatorio_geral.txt'.\n");
+}
