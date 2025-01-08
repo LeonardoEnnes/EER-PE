@@ -23,6 +23,7 @@ O principal objetivo deste projeto é fornecer uma análise detalhada do consumo
 - **Identificação de Maior Consumo:** Utiliza uma função recursiva para identificar o eletrodoméstico com maior consumo.
 - **Simulação Solar:** Calcula a economia potencial com a adoção de energia solar, considerando o consumo atual.
 - **Análise de Viabilidade:** Avalia a viabilidade da instalação solar, calculando o tempo de retorno do investimento (payback) com base no tipo de residência.
+- **Salvar o relatorio:** É possivel salvar o relatorio gerado pelo programa em um arquivo .txt na raiz do projeto
 
 ---
 
