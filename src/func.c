@@ -2,6 +2,7 @@
 #include "lib.h"
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
 
 float calcularConsumo(float potencia, float horas) {
     return (potencia / 1000) * horas; // Converte W para kW
