@@ -36,3 +36,5 @@ O projeto é composto pelos seguintes arquivos:
 - **`lib.h`:** Define constantes e protótipos de funções utilizadas no projeto.
 
 ---
+
+Autor: Leonardo Ennes
